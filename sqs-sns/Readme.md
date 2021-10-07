@@ -68,7 +68,7 @@ This module requires the following versions to be configured in the workspace `t
 | `receive_wait_time_seconds`            | The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds)                                              | `number`  | `0`        |
 | `sqs_policy`            | The JSON policy for the SQS queue                                              | `string`  | `nil`        |
 | `sns_subscriptions`            | Subscriptions to an SNS topic                                              | `list(string)`  | `[]`        |
-| `sns_filter_policy`            | JSON object containing attributes that define which messages the subscriber receives                                              | `string`  | `{"event": ["Company--Upserted","Company-Occupation--Upserted","Company-Finance--Upserted"]}`        |
+| `sns_filter_policy`            | JSON object containing attributes that define which messages the subscriber receives                                              | `string`  | `""`        |
 | `tags`            | Tags to apply to role.                                              | `map(string)`  | `{}`        |
 
 
