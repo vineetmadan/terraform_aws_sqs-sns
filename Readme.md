@@ -18,12 +18,36 @@ A standard use of the module from a _Terraform_ working directory.
 module "sqs-sns" {
   source = "../modules/sqs-sns"
   
-  sqs_name  =  "CompanyDev"
-  sns_name  =  "CompanyDev"
+  sqs_name  =  "sqs_name"
+  sns_name  =  "sns_name"
 
-  create_dm_subscription  =  true
+  sqs_policy = <<POLICY
+  {
+    "Version": "2012-10-17",
+    "Id": "__policy_ID",
+    "Statement": [
+      {
+        "Sid": "Allow-SendMessage-From-SNS",
+        "Effect": "Allow",
+        "Principal": {
+          "AWS": "*"
+        },
+        "Action": "sqs:SendMessage",
+        "Resource": "arn:aws:sqs:eu-west-1:${local.account_id}:sqs_name",
+        "Condition": {
+          "ArnEquals": {
+            "aws:SourceArn": [
+              "arn:aws:sns:eu-west-1:${local.account_id}:sns_name1",
+              "arn:aws:sns:eu-west-1:${local.account_id}:sns_name2"
+            ]  
+          }
+        }
+      }
+    ]
+  }
+  POLICY
 
-  sns_subscriptions  =  ["CompanyDev", "UnisearchDev"]
+  sns_subscriptions  =  ["sqs_name1", "sqs_name2"]
 
   tags  =  {
     "Environment" = infra,
