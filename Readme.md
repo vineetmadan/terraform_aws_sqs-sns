@@ -61,12 +61,11 @@ This module requires the following versions to be configured in the workspace `t
 | `sns_create`     | Whether to create SNS topic                                    | `boolean`       | `true`        |
 | `sqs_name`    | Name of the SQS queue                                    | `string`         | `""`      |
 | `sns_name`          | Name of the SNS topic                                | `string`       | `""`       |
-| `create_dm_subscription`            | Whether to create DM Subscription                                              | `boolean`  | `false`        |
 | `delay_seconds`       | The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes)             | `number` | `0`       |
 | `max_message_size`       | The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB) | `number`       | `262144`       |
 | `message_retention_seconds` | The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days)      | `number`       | `345600`       |
 | `receive_wait_time_seconds`            | The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds)                                              | `number`  | `0`        |
-| `sqs_policy`            | The JSON policy for the SQS queue                                              | `string`  | `nil`        |
+| `sqs_policy`            | The JSON policy for the SQS queue                                              | `string`  | `""`        |
 | `sns_subscriptions`            | Subscriptions to an SNS topic                                              | `list(string)`  | `[]`        |
 | `sns_filter_policy`            | JSON object containing attributes that define which messages the subscriber receives                                              | `string`  | `""`        |
 | `tags`            | Tags to apply to role.                                              | `map(string)`  | `{}`        |

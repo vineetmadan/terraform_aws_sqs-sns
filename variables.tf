@@ -21,11 +21,6 @@ variable "sns_name" {
   default     = ""
 }
 
-variable "create_dm_subscription" {
-  description = "Whether to create DM Subscription"
-  type        = bool
-  default     = false
-}
 variable "delay_seconds" {
   description = "The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes)"
   type        = number
@@ -51,12 +46,7 @@ variable "receive_wait_time_seconds" {
 variable "sqs_policy" {
   description = "The JSON policy for the SQS queue"
   type        = string
-  default     = null
-}
-variable "dm_sns" {
-  description = "DM SNS URL"
-  type        = string
-  default     = "DM_Mock_URL"
+  default     = ""
 }
 
 variable "sns_subscriptions" {
